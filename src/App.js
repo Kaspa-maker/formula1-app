@@ -1,27 +1,30 @@
 import React from 'react';
 import './App.css';
 import { Layout, Header, Navigation, Drawer, Content} from 'react-mdl';
+import Main from './components/main';
+import {Link} from 'react-router-dom';
 
 function App() {
   return (
-    <div style={{height: '300px', position: 'relative'}}>
-    <Layout style={{background: 'url(https://www.underconsideration.com/brandnew/archives/new_logo_for_formula_1_by_wieden_kennedy.php) center / cover'}}>
-        <Header transparent title="Title" style={{color: 'white'}}>
+    <div style={{height: '600px', position: 'relative'}}>
+    <Layout style={{background: 'url(f1main.jpg) center / cover'}}>
+        <Header title="Title" style={{color: 'black'}}>
             <Navigation>
-                <a href="/">Link</a>
-                <a href="/">Link</a>
-                <a href="/">Link</a>
-                <a href="/">Link</a>
+                <Link to="/drivers">Drivers</Link>
+                <Link to="/tracks">Tracks</Link>
+                <Link to="/infonews">Info</Link>
+                <Link to="/about">About Us</Link>
             </Navigation>
         </Header>
         <Drawer title="Title">
             <Navigation>
-                <a href="/">Link</a>
-                <a href="/">Link</a>
-                <a href="/">Link</a>
-                <a href="/">Link</a>
+                <Link to="/">F1</Link>
+                <Link to="/">F2</Link>
+                <Link to="/">F3</Link>
+                <Link to="/about">About Us</Link>
             </Navigation>
         </Drawer>
+        <Main/>
         <Content />
     </Layout>
 </div>

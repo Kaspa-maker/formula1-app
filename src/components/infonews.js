@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
  
 
-class MainPage extends Component {
+class InfoNews extends Component {
     render(){
         return(
             <div>
-                <h1>Welcome to Formula 1</h1>
+                <h1>News on the Grid</h1>
             </div>
         )
     }
 }
 
-export default MainPage;
+export default InfoNews;
