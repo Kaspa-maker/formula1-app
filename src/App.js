@@ -6,9 +6,9 @@ import {Link} from 'react-router-dom';
 
 function App() {
   return (
-    <div style={{height: '600px', position: 'relative'}}>
-    <Layout style={{background: 'url(f1main.jpg) center / cover'}}>
-        <Header title="Title" style={{color: 'black'}}>
+    <div style={{height: '965px', position: 'relative'}}>
+    <Layout >
+        <Header className="header-color" title="Formula for the Fans" style={{color: 'black'}}>
             <Navigation>
                 <Link to="/drivers">Drivers</Link>
                 <Link to="/tracks">Tracks</Link>
@@ -18,9 +18,9 @@ function App() {
         </Header>
         <Drawer title="Title">
             <Navigation>
-                <Link to="/">F1</Link>
-                <Link to="/">F2</Link>
-                <Link to="/">F3</Link>
+                <a href="https://www.formula1.com" rel="noopener" target="_blank">F1</a>
+                <a href="http://www.fiaformula2.com" rel="noopener" target="_blank">F2</a>
+                <a href="http://www.fiaformula3.com" rel="noopener" target="_blank">F3</a>
                 <Link to="/about">About Us</Link>
             </Navigation>
         </Drawer>
