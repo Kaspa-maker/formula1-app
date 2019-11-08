@@ -8,7 +8,7 @@ import InfoNews from './infonews';
 
 const Main = () => (
     <Switch>
-        <Route exact path="/" component={MainPage}/>
+        <Route exact path="/mainpage" component={MainPage}/>
         <Route path="/drivers" component={Drivers}/>
         <Route path="/tracks" component={Tracks}/>
         <Route path="/about" component={About}/>

@@ -10,18 +10,19 @@ function App() {
     <Layout >
         <Header className="header-color" title="Formula for the Fans" style={{color: 'black'}}>
             <Navigation>
-                <Link to="/drivers">Drivers</Link>
-                <Link to="/tracks">Tracks</Link>
-                <Link to="/infonews">Info</Link>
-                <Link to="/about">About Us</Link>
+              <Link to="/mainpage">Home</Link>
+              <Link to="/drivers">Drivers</Link>
+              <Link to="/tracks">Tracks</Link>
+              <Link to="/infonews">Info</Link>
+              <Link to="/about">About Us</Link>
             </Navigation>
         </Header>
-        <Drawer title="Title">
+        <Drawer title="Menu">
             <Navigation>
-                <a href="https://www.formula1.com" rel="noopener" target="_blank">F1</a>
-                <a href="http://www.fiaformula2.com" rel="noopener" target="_blank">F2</a>
-                <a href="http://www.fiaformula3.com" rel="noopener" target="_blank">F3</a>
-                <Link to="/about">About Us</Link>
+              <a href="https://www.formula1.com" rel="noopener" target="_blank">F1</a>
+              <a href="http://www.fiaformula2.com" rel="noopener" target="_blank">F2</a>
+              <a href="http://www.fiaformula3.com" rel="noopener" target="_blank">F3</a>
+              <Link to="/about">About Us</Link>
             </Navigation>
         </Drawer>
         <Main/>
