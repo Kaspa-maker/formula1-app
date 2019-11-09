@@ -18,7 +18,8 @@ class Drivers extends Component {
                         in Formula One for Mercedes-AMG Petronas Motorsport. A six-time Formula One World Champion
                     </CardText>
                     <CardActions border>
-                        <Button colored>Profile</Button>
+                        <a href="https://en.wikipedia.org/wiki/Lewis_Hamilton" rel="noopener noreferrer" target="_blank"><Button colored>Background</Button></a>
+                        <a href="https://www.instagram.com/lewishamilton/?hl=pl" rel="noopener noreferrer" target="_blank"><Button colored>Instagram</Button></a>
                     </CardActions>
                 </Card>
 
@@ -29,7 +30,8 @@ class Drivers extends Component {
                         currently competing in Formula One with Mercedes, having previously driven for Williams from 2013 to 2016.
                     </CardText>
                     <CardActions border>
-                        <Button colored>Profile</Button>
+                        <a href="https://en.wikipedia.org/wiki/Valtteri_Bottas" rel="noopener noreferrer" target="_blank"><Button colored>Background</Button></a>
+                        <a href="https://www.instagram.com/valtteribottas/?hl=pl" rel="noopener noreferrer" target="_blank"><Button colored>Instagram</Button></a>
                     </CardActions>
                 </Card>
 
@@ -41,7 +43,8 @@ class Drivers extends Component {
                         in 2016 and the FIA Formula 2 Championship in 2017.
                     </CardText>
                     <CardActions border>
-                        <Button colored>Profile</Button>
+                        <a href="https://en.wikipedia.org/wiki/Charles_Leclerc" rel="noopener noreferrer" target="_blank"><Button colored>Background</Button></a>
+                        <a href="https://www.instagram.com/charles_leclerc/?hl=pl" rel="noopener noreferrer" target="_blank"><Button colored>Instagram</Button></a>
                     </CardActions>
                 </Card>
 
@@ -72,7 +75,7 @@ class Drivers extends Component {
                         World Championship
                     </CardText>
                     <CardActions border>
-                        <Button colored>Profile</Button>
+                        <a href="http://www.fiaformula2.com/Teams-and-Drivers/Drivers/Nyck-de-Vries/" rel="noopener noreferrer" target="_blank"><Button colored>Profile</Button></a>
                     </CardActions>
                 </Card>
 
@@ -84,7 +87,7 @@ class Drivers extends Component {
                         and in 2019 he became Williams's test and reserve driver.
                     </CardText>
                     <CardActions border>
-                        <Button colored>Profile</Button>
+                        <a href="http://www.fiaformula2.com/Teams-and-Drivers/Drivers/Nicholas-Latifi/" rel="noopener noreferrer" target="_blank"><Button colored>Profile</Button></a>
                     </CardActions>
                 </Card>
 
@@ -95,7 +98,7 @@ class Drivers extends Component {
                     Formula 2 for UNI-Virtuosi Racing, and FIA WEC with Ginetta.
                     </CardText>
                     <CardActions border>
-                        <Button colored>Profile</Button>
+                        <a href="http://www.fiaformula2.com/Teams-and-Drivers/Drivers/Luca-Ghiotto/" rel="noopener noreferrer" target="_blank"><Button colored>Profile</Button></a>
                     </CardActions>
                 </Card>
             </div>
@@ -111,7 +114,7 @@ class Drivers extends Component {
                         He is the 2018 Toyota Racing Series champion and the 2019 FIA Formula 3 champion.
                     </CardText>
                     <CardActions border>
-                        <Button colored>Profile</Button>
+                        <a href="http://www.fiaformula3.com/Teams-and-Drivers/Drivers/Robert-Shwartzman/" rel="noopener noreferrer" target="_blank"><Button colored>Profile</Button></a>
                     </CardActions>
                 </Card>
 
@@ -122,7 +125,7 @@ class Drivers extends Component {
                         driver who competes in the 2019 FIA F3 Championship for Prema Powerteam.
                     </CardText>
                     <CardActions border>
-                        <Button colored>Profile</Button>
+                        <a href="http://www.fiaformula3.com/Teams-and-Drivers/Drivers/Marcus-Armstrong/" rel="noopener noreferrer" target="_blank"><Button colored>Profile</Button></a>
                     </CardActions>
                 </Card>
 
@@ -134,7 +137,7 @@ class Drivers extends Component {
                         after being one of three winners of a 'One in a Billion hunt' organized by the team in 2011
                     </CardText>
                     <CardActions border>
-                        <Button colored>Profile</Button>
+                        <a href="http://www.fiaformula3.com/Teams-and-Drivers/Drivers/Jehan-Daruvala/" rel="noopener noreferrer" target="_blank"><Button colored>Profile</Button></a>
                     </CardActions>
                 </Card>
             </div>

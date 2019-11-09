@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Cell} from 'react-mdl';
-import InfoNews from './infonews';
+import { Grid, Cell, Footer, FooterSection, FooterLinkList} from 'react-mdl';
  
 
 class MainPage extends Component {
@@ -18,7 +17,7 @@ class MainPage extends Component {
                             allows you to follow what is going on in the paddock and on the grid</p>
                         <hr/>
                         <p>If you want to visit the official web pages for Formula 1,2 and 3 press the table on the left
-                            and will show you 3 tabs to click</p> 
+                            and will show you 3 tabs to click</p>
                     </div>
                 </Cell>
                 </Grid>
