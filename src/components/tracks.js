@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Tabs, Tab, Grid, Cell, Card, CardText, CardTitle, Button, CardActions} from 'react-mdl';
+import {Grid, Cell, Card, CardText, CardTitle, Button, CardActions} from 'react-mdl';
 
 class Tracks extends Component {
     render(){
