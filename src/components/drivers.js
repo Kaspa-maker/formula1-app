@@ -47,18 +47,6 @@ class Drivers extends Component {
                         <a href="https://www.instagram.com/charles_leclerc/?hl=pl" rel="noopener noreferrer" target="_blank"><Button colored>Instagram</Button></a>
                     </CardActions>
                 </Card>
-
-                {/*<Card shadow={6} style={{width: '400px', height: '400px', margin: 'auto'}}>
-                    <CardTitle expand style={{color: '#fff', background: 'url(https://www.formula1.com/content/fom-website/en/drivers/sebastian-vettel/_jcr_content/image.img.640.medium.jpg/1567175200601.jpg'}}>Sebastian Vettel</CardTitle>
-                    <CardText>
-                    Sebastian Vettel (born 3 July 1987)[1] is a German racing driver who races in Formula One 
-                    for Scuderia Ferrari. He is a four-time Formula One World Champion, having won consecutive 
-                    titles in 2010–2013 with Red Bull Racing
-                    </CardText>
-                    <CardActions border>
-                        <Button colored>Profile</Button>
-                    </CardActions>
-            </Card>*/}
             </div>
             )
         } else if(this.state.activeTab === 1){
