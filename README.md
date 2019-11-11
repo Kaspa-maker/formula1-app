@@ -4,7 +4,7 @@ Name: Kasper Gutkowski
 
 ## Overview.
 
-The concept of the app is a fan based app for f1 and f1 and f3. I tried to create a place were fans can see their
+The concept of the app is a fan based app for f1 and f2 and f3. I tried to create a place were fans can see their
 favourite driver or read about a certain grand prix. You also can contact the devs using the emails provided and add news info 
 and remove and edit them.
 
@@ -38,6 +38,9 @@ place code snippets, e.g. JSON, inside these fence delimiters and they will appe
 >> Shows the main page of of app. Clear view of the navbar and main image and intro to everyone visiting.
 
 ![Screenshot][detail.png]
+
+
+>> Shows the main page of of app. Clear view of the navbar and main image and intro to everyone visiting.
 
 >> Shows the about page with the f1 image. It talks about who the devs our so the user can get a feel for who they are. It also shows contact details that a fan or potential worker can contact the team.
 
