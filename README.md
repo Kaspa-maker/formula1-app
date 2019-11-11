@@ -59,8 +59,8 @@ place code snippets, e.g. JSON, inside these fence delimiters and they will appe
 
 I used React-MDL and reactstrap to style my webpage. I used a tutorial online for CRUD adding, removing and editing. I also used stackoverflow for some code parts.
 
-[model]: ./img/model.png
-[main]: ./img/main.png
-[detail]: ./img/detail.png
-[stories]: ./img/stories.png
+(model): ./img/model.png
+(main): ./img/main.png
+(detail): ./img/detail.png
+(stories): ./img/stories.png
 
