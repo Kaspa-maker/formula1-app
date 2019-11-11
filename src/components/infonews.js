@@ -1,104 +1,102 @@
 import React, { Component } from 'react';
-import { Button, Table, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input} from 'reactstrap';
-import axios from 'axios';
-
+import { Button, InputGroup, Input} from 'reactstrap';
 class InfoNews extends Component {
-    state = {
-        news:[],
-        newNewsData:{
-            title:'',
-            shortdescription:'',
-            author:''
-        },
-        newInfoModal: false
-    }
-    componentWillMount(){
-        axios.get('http://localhost:3000/infonews').then((response) => {
-            this.setState({
-                news: response.data
-            })
-        });
+
+    constructor(props){
+        super(props);
+        this.state={
+            news: [],
+            act: 0,
+            index: ''
+        }
     }
 
-    toggleNewInfoModal(){
+    componentDidMount(){
+        this.refs.title.focus();
+    }
+
+    addInfo = (e) =>{
+        let news = this.state.news;
+        let title = this.refs.title.value;
+        let shortdescription = this.refs.title.value;
+        let author = this.refs.author.value;
+
+        if(this.state.act === 0){
+            let info = {
+                title,shortdescription,author
+            }
+            news.push(info);
+        }else{
+            let index = this.state.index;
+            news[index].title = title;
+            news[index].shortdescription = shortdescription;
+            news[index].author = author;
+        }
+        
         this.setState({
-            newInfoModal: ! this.state.newInfoModal
-        })
-    
+            news: news
+        });
+
+        this.refs.myForm.reset();
+        this.refs.title.focus();
     }
 
-    addInfo(){
-        axios.post('http://localhost:3000/infonews', this.state.newNewsData).then((response) => {
-        console.log(response.data);
-        let{ news } = this.state;
-            news.push(response.data);
-            this.setState({news, newInfoModal: false, newNewsData:{
-                title:'',
-                shortdescription:'',
-                author:''
-            }});
+    removeInfo = (i)=>{
+        let news = this.state.news;
+        news.splice(i,1);
+        this.setState({
+            news: news
         });
+
+        this.refs.myForm.reset();
+        this.refs.title.focus();
     }
+
+    EditInfo = (i)=>{
+        let info = this.state.news[i];
+        this.refs.title.value = info.title;
+        this.refs.title.value = info.shortdescription;
+        this.refs.title.value = info.author;
+        
+        this.setState({
+            act: 1,
+            index: i
+        })
+
+        this.refs.title.focus();
+    }
+
     render(){
-        let news = this.state.news.map((info) => {
-            return(
-                <tr key={info.id}>
-                    <td>{info.title}</td>
-                    <td>{info.shortdescription}</td>
-                    <td>{info.author}</td>
-                    <td><Button color="success" size="sm">Edit</Button></td>
-                    <td><Button color="danger" size="sm">Delete</Button></td>
-                </tr>
-            )
-        });
+        let news = this.state.news;
         return(
-            <div className="info-table">
-                <Button color="primary" onClick={this.toggleNewInfoModal.bind(this)}>Add new rumour to the grid</Button>
-                <Modal isOpen={this.state.newInfoModal} toggle={this.toggleNewInfoModal.bind(this)}>
-                    <ModalHeader toggle={this.toggleNewInfoModal.bind(this)}>Add some Info</ModalHeader>
-                            <ModalBody>
-                                <FormGroup>
-                                    <Label for="title">Title</Label>
-                                    <Input name="Title" id="title" value={this.state.newNewsData.title}onChange={(e) =>{
-                                        let {newNewsData} = this.state;
-                                        newNewsData.title = e.target.value;
-                                        this.setState({newNewsData});
-                                    }}/>
-                                    <Label for="exampleText">Short Descritpion</Label>
-                                    <Input name="Short Description" id="shortdescription" value={this.state.newNewsData.shortdescription}onChange={(e) =>{
-                                        let {newNewsData} = this.state;
-                                        newNewsData.shortdescription = e.target.value;
-                                        this.setState({newNewsData});
-                                    }}/>
-                                    <Label for="title">Author</Label>
-                                    <Input name="Author" id="author" value={this.state.newNewsData.author}onChange={(e) => {
-                                        let {newNewsData} = this.state;
-                                        newNewsData.author = e.target.value;
-                                        this.setState({newNewsData});
-                                    }}/>
-                                </FormGroup>
-                            </ModalBody>
-                        <ModalFooter>
-                        <Button color="primary" onClick={this.addInfo.bind(this)}>Add</Button>{' '}
-                        <Button color="secondary" onClick={this.toggleNewInfoModal.bind(this)}>Cancel</Button>
-                    </ModalFooter>
-                </Modal>
-                <Table>
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Short Descritpion</th>
-                            <th>Author</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {news}
-                    </tbody>
-                </Table>
+            <div className="info">
+                <form ref="myForm" className="form">
+                    <br/>
+                    <InputGroup>
+                    <Input type="text" ref="title" placeholder="Title"/>
+                    </InputGroup>
+                    <br/>
+                    <InputGroup>
+                    <Input type="textarea" ref="shortdescription" placeholder="Short Description"/>
+                    </InputGroup>
+                    <br/>
+                    <InputGroup>
+                    <Input type="text" ref="author" placeholder="Author"/>
+                    </InputGroup>
+                    <br/>
+                    <Button onClick={(e)=>this.addInfo(e)}>Add</Button>
+                </form>
+                <pre>
+                    {news.map((info, i) => 
+                            <li key={i} className="list">
+                                {i+1}. {info.title}, {info.shortdescription}, {info.author}
+                                <Button onClick={()=>this.removeInfo(i)}>Remove</Button>
+                                <Button onClick={()=>this.EditInfo(i)}>Edit</Button>
+                            </li>
+                        )}
+                </pre>
             </div>
         )
     }
 }
-
 export default InfoNews;
