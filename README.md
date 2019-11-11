@@ -26,18 +26,18 @@ Once all the js files were created and storybook imported im procedded with codi
 
 ## Data Model Design.
 
-![Screenshot](model.png)
+![Screenshot](model.PNG)
 
 ~~~
 place code snippets, e.g. JSON, inside these fence delimiters and they will appear in a block-like structure.
 ~~~
 ## UI Design.
 
-![Screenshot](main.png)
+![Screenshot](main.PNG)
 
 >> Shows the main page of of app. Clear view of the navbar and main image and intro to everyone visiting.
 
-![Screenshot](detail.png)
+![Screenshot](detail.PNG)
 
 
 >> Shows the main page of of app. Clear view of the navbar and main image and intro to everyone visiting.
@@ -53,14 +53,14 @@ place code snippets, e.g. JSON, inside these fence delimiters and they will appe
 
 ## Storybook.
 
-![Screenshot](stories.png)
+![Screenshot](stories.PNG)
 
 ## Independent learning.
 
 I used React-MDL and reactstrap to style my webpage. I used a tutorial online for CRUD adding, removing and editing. I also used stackoverflow for some code parts.
 
-(model): ./img/model.png
-(main): ./img/main.png
-(detail): ./img/detail.png
-(stories): ./img/stories.png
+(model): ./img/model.PNG
+(main): ./img/main.PNG
+(detail): ./img/detail.PNG
+(stories): ./img/stories.PNG
 
