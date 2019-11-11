@@ -4,7 +4,7 @@ Name: Kasper Gutkowski
 
 ## Overview.
 
-The concept of the app is a fan based app for f1 and f1 and f3. I tried to create a place were fans can see their
+The concept of the app is a fan based app for f1 and f2 and f3. I tried to create a place were fans can see their
 favourite driver or read about a certain grand prix. You also can contact the devs using the emails provided and add news info 
 and remove and edit them.
 
