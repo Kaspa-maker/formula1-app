@@ -26,18 +26,18 @@ Once all the js files were created and storybook imported im procedded with codi
 
 ## Data Model Design.
 
-![][model]
+![Screenshot][model.png]
 
 ~~~
 place code snippets, e.g. JSON, inside these fence delimiters and they will appear in a block-like structure.
 ~~~
 ## UI Design.
 
-![][main]
+![Screenshot][main.png]
 
 >> Shows the main page of of app. Clear view of the navbar and main image and intro to everyone visiting.
 
-![][detail]
+![Screenshot][detail.png]
 
 >> Shows the about page with the f1 image. It talks about who the devs our so the user can get a feel for who they are. It also shows contact details that a fan or potential worker can contact the team.
 
@@ -50,7 +50,7 @@ place code snippets, e.g. JSON, inside these fence delimiters and they will appe
 
 ## Storybook.
 
-![][stories]
+![Screenshot][stories.png]
 
 ## Independent learning.
 
