@@ -72,6 +72,22 @@ EditInfo = (i)=>{
 
 >> Shows the main page of of app. Clear view of the navbar and main image and intro to everyone visiting.
 
+![Screenshot](f1.PNG)
+
+>> Shows the drivers grid for F1 with links to their backgrounds and instagrams.
+
+![Screenshot](f2.PNG)
+
+>>Shows the drivers grid for F2 with links to their backgrounds and instagrams.
+
+![Screenshot](f3.PNG)
+
+>>Shows the drivers grid for F3 with links to their backgrounds and instagrams.
+
+![Screenshot](info.PNG)
+
+>> Shows the info page were users can add to a list all infos, questions, discutions and rumours they wish.
+
 ![Screenshot](detail.PNG)
 
 

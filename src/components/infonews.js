@@ -7,7 +7,10 @@ class InfoNews extends Component {
         this.state={
             news: [],
             act: 0,
-            index: ''
+            index: '',
+            title: '',
+            shortdescription:'',
+            author:''
         }
     }
 
@@ -17,9 +20,9 @@ class InfoNews extends Component {
 
     addInfo = (e) =>{
         let news = this.state.news;
-        let title = this.refs.title.value;
-        let shortdescription = this.refs.title.value;
-        let author = this.refs.author.value;
+        let title = document.getElementById('myTitle').value;
+        let shortdescription = document.getElementById('myDes').value;
+        let author = document.getElementById('myAuthor').value;
 
         if(this.state.act === 0){
             let info = {
@@ -60,7 +63,10 @@ class InfoNews extends Component {
         
         this.setState({
             act: 1,
-            index: i
+            index: i,
+            title:'',
+            shortdescription:'',
+            author:''
         })
 
         this.refs.title.focus();
@@ -73,15 +79,15 @@ class InfoNews extends Component {
                 <form ref="myForm" className="form">
                     <br/>
                     <InputGroup>
-                    <Input type="text" ref="title" placeholder="Title"/>
+                    <Input type="text" ref="title" placeholder="Title" id="myTitle"/>
                     </InputGroup>
                     <br/>
                     <InputGroup>
-                    <Input type="textarea" ref="shortdescription" placeholder="Short Description"/>
+                    <Input type="textarea" ref="shortdescription" placeholder="Short Description" id="myDes"/>
                     </InputGroup>
                     <br/>
                     <InputGroup>
-                    <Input type="text" ref="author" placeholder="Author"/>
+                    <Input type="text" ref="author" placeholder="Author" id="myAuthor"/>
                     </InputGroup>
                     <br/>
                     <Button onClick={(e)=>this.addInfo(e)}>Add</Button>
