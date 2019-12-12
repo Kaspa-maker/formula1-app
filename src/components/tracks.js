@@ -1,52 +1,129 @@
 import React, { Component } from 'react';
-import {Grid, Cell, Card, CardText, CardTitle, Button, CardActions} from 'react-mdl';
+import { Grid, Cell, Card, CardText, CardTitle, Button, CardActions,DialogActions, DialogContent, DialogTitle, Dialog } from 'react-mdl';
+//import api from '../dataStore/stubAPI';
+import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
 
 class Tracks extends Component {
-    render(){
-        return(
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            tracks: [],
+        }
+        this.deleteTrack = this.deleteTrack.bind(this);
+        this.handleOpenDialog = this.handleOpenDialog.bind(this);
+        this.handleCloseDialog = this.handleCloseDialog.bind(this);
+        this.addNewTrack = this.addNewTrack.bind(this);
+    }
+
+
+    componentDidMount() {
+        fetch(`http://localhost:8080/api/tracks`)
+            .then(response => response.json())
+            .then(data => this.setState({ tracks: data }));
+    };
+
+    deleteTrack(trackId) {
+        fetch("http://localhost:8080/api/tracks/" + trackId, {
+            method: 'DELETE',
+            header: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        window.location.reload();
+    }
+
+
+    handleOpenDialog() {
+        this.setState({
+            openDialog: true
+        });
+    }
+
+    handleCloseDialog() {
+        this.setState({
+            openDialog: false
+        });
+    }
+
+    addNewTrack() {
+        var newName = document.getElementById('name').value;
+        var newDescription = document.getElementById('description').value;
+        var newLink = document.getElementById('link').value;
+        var newImage = document.getElementById('image').value;
+
+        const newTrack = {
+            name: newName,
+            description: newDescription,
+            link: newLink,
+            image: newImage
+        }
+
+        fetch('http://localhost:8080/api/tracks', {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newTrack)
+        })
+        window.location.reload();
+    }
+
+
+    render() {
+        const { tracks } = this.state;
+        //let tracks = api.getAlltracks();
+        return (
             <div className="category-tabs">
                 <Grid>
                     <Cell col={12}>
                         <div className="content">
                             <div className="drivers-grid">
-                                <Card shadow={6} style={{width: '400px', height: '400px', margin: 'auto'}}>
-                                    <CardTitle expand style={{color: '#fff', background: 'url(https://www.austadiums.com/stadiums/photos/albert-park.jpg'}}>Melbourne Grand Prix</CardTitle>
-                                    <CardText>
-                                        The Melbourne Grand Prix Circuit is a street circuit around Albert Park Lake, only a few kilometres 
-                                        outh of central Melbourne. It is used annually as a racetrack for the Formula One Australian Grand Prix, 
-                                        Supercars Championship Melbourne 400 and associated support races. The circuit has an FIA Grade 1 licence.
-                                    </CardText>
-                                    <CardActions border>
-                                        <a href="https://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit" rel="noopener noreferrer" target="_blank"><Button colored>If you want to learn more press here</Button></a>
-                                    </CardActions>
-                                </Card>
-
-                                <Card shadow={6} style={{width: '400px', height: '400px', margin: 'auto'}}>
-                                    <CardTitle expand style={{color: '#fff', background: 'url(https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-eu-west-1.amazonaws.com%2Fhtsi-ez-prod%2Fez%2Fimages%2F5%2F8%2F5%2F0%2F930585-1-eng-GB%2F354a4235-9da4-4b7e-afef-39422288175b.jpg?width=620&dpr=1&format=jpg&source=htsi'}}>Bahrain Grand Prix</CardTitle>
-                                    <CardText>
-                                        The Bahrain International Circuit is a motorsport venue opened in 2004 and used for drag racing, 
-                                        GP2 Series and the annual Bahrain Grand Prix. The 2004 Grand Prix was the first held in the Middle East.
-                                    </CardText>
-                                    <CardActions border>
-                                        <a href="https://en.wikipedia.org/wiki/Bahrain_Grand_Prix" rel="noopener noreferrer" target="_blank"><Button colored>If you want to learn more press here</Button></a>
-                                    </CardActions>
-                                </Card>
-
-                                <Card shadow={6} style={{width: '400px', height: '400px', margin: 'auto'}}>
-                                    <CardTitle expand style={{color: '#fff', background: 'url(https://i.pinimg.com/474x/f9/f4/95/f9f495fb26739fe14f84d3d2408da8d4--aerial-view-race-tracks.jpg'}}>Chinese Grand Prix</CardTitle>
-                                    <CardText>
-                                        The Shanghai International Circuit is a motorsport race track, situated in the Jiading District, Shanghai. 
-                                        The circuit is best known as the venue for the annual Formula 1 Chinese Grand Prix which has been hosted since 2004.
-                                    </CardText>
-                                    <CardActions border>
-                                        <a href="https://en.wikipedia.org/wiki/Chinese_Grand_Prix" rel="noopener noreferrer" target="_blank"><Button colored>If you want to learn more press here</Button></a>
-                                    </CardActions>
-
-                                </Card>
+                                {tracks.map(track =>
+                                    <Card shadow={6} style={{ width: '400px', height: '400px', margin: 'auto' }}>
+                                        <CardTitle expand style={{ color: '#fff', background: `url(${track.image}` }}>{track.name}</CardTitle>
+                                        <CardText>
+                                            {track.description}
+                                        </CardText>
+                                        <CardActions border>
+                                            <a href={track.link} rel="noopener noreferrer" target="_blank"><Button colored>If you want to learn more press here</Button></a>
+                                            <Button style={{ color: "red", marginLeft: "44px" }} onClick={() => this.deleteTrack(track._id)}>Remove</Button>
+                                        </CardActions>
+                                    </Card>
+                                )}
                             </div>
                         </div>
                     </Cell>
                 </Grid>
+
+                <Button style={{ color: "red", marginLeft: "45%", marginTop: "10%" }} onClick={this.handleOpenDialog} raised ripple>Add Track</Button>
+                <Dialog open={this.state.openDialog} style={{ width: "50%", height: "50%" }}>
+                    <DialogTitle>Add new Track</DialogTitle>
+                    <DialogContent>
+                        <InputGroup style={{ marginBottom: "20px" }}>
+                            <InputGroupAddon addonType="prepend">name</InputGroupAddon>
+                            <Input id="name" />
+                        </InputGroup>
+                        <InputGroup style={{ marginBottom: "20px" }}>
+                            <InputGroupAddon addonType="prepend">description</InputGroupAddon>
+                            <Input id="description" />
+                        </InputGroup>
+                        <InputGroup style={{ marginBottom: "20px" }}>
+                            <InputGroupAddon addonType="prepend">link</InputGroupAddon>
+                            <Input id="link" />
+                        </InputGroup>
+                        <InputGroup style={{ marginBottom: "20px" }}>
+                            <InputGroupAddon addonType="prepend">image link</InputGroupAddon>
+                            <Input id="image" />
+                        </InputGroup>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button type='button' onClick={this.addNewTrack}>Add Track</Button>
+                        <Button type='button' onClick={this.handleCloseDialog}>Cancel</Button>
+                    </DialogActions>
+                </Dialog>
             </div>
         )
     }

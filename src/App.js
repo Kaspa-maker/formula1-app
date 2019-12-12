@@ -1,13 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import { Layout, Header, Navigation, Drawer, Content, Footer, FooterSection, FooterLinkList} from 'react-mdl';
-import Main from './components/main';
-import {Link} from 'react-router-dom';
+import fire from './config/fire';
+import Home from './components/home';
+import Login from './components/login'
 
-function App() {
+class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      user:{},
+    }
+  }
+
+  componentDidMount(){
+    this.authListener();
+  }
+
+  authListener() {
+    fire.auth().onAuthStateChanged((user) => {
+      console.log(user);
+        if(user){
+          this.setState({ user });
+        }else {
+          this.setState({ user: null })
+        }
+    });
+  }
+
+render(){
   return (
     <div style={{height: '100vh', position: 'relative'}}>
-    <Layout >
+  {this.state.user ? (<Home/>) : (<Login/>)}
+
+    {/*<Layout >
         <Header className="header-color" title="Formula for the Fans" style={{color: 'black'}}>
             <Navigation>
               <Link to="/mainpage">Home</Link>
@@ -35,9 +61,10 @@ function App() {
               </FooterLinkList>
           </FooterSection>
         </Footer>
-    </Layout>
-</div>
+    </Layout>*/}
+  </div>
   );
+}
 }
 
 export default App;
